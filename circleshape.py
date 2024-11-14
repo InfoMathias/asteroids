@@ -1,3 +1,4 @@
+import math
 import pygame
 
 # Base class for game objects
@@ -20,3 +21,7 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # sub-classes must override
         pass
+
+    def isColliding(self, circleShape):
+        distance = math.sqrt((self.position.x - circleShape.position.x)**2 + (self.position.y - circleShape.position.y)**2)
+        return distance <= self.radius + circleShape.radius
