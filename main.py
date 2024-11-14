@@ -45,6 +45,11 @@ def main():
             if member.isColliding(player):
                 print('Game Over') 
                 return
+        
+        for member in asteroids:
+            for bullet in shots:
+                if member.isColliding(bullet):
+                    member.split()
             
 
         pygame.display.flip()
